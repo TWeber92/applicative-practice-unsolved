@@ -5,10 +5,12 @@ import { data } from "../data/data";
 // Return example: ['name1', 'name2', ... , 'nameN']
 
 export function getAsteroidsDiscoveredAfterYear(data, year) {
-  const asteroidAfterGivenYear = data.asteroids
-    .filter((asteroid) => asteroid.discoveryYear > year)
-    .map((asteroid) => asteroid.name);
-  return asteroidAfterGivenYear;
+  return data.asteroids.reduce((acc, asteroid) => {
+    if (asteroid.discoveryYear > year) {
+      acc.push(asteroid.name);
+    }
+    return acc;
+  }, []);
 }
 
 // === TEST YOURSELF ===

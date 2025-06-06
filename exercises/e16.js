@@ -9,7 +9,6 @@
  */
 
 export function find(array, callback) {
-  const findResult = [];
   for (let item of array) {
     if (callback(item)) {
       return item;
